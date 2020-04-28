@@ -18,7 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends Activity {
 
     private static String PREDICTOR_URI_JSON = "https://predictor.yandex.net/";
-    private static String PREDICTOR_KEY = "trnsl.1.1.20200428T083501Z.52dbfb0f4a002717.7abae8530474a7ede8d74cc63c82d38e1d8c5186";
+    private static String PREDICTOR_KEY = "pdct.1.1.20200428T133609Z.44038f0b8dff0584.f4583bbb8627fee7f48876ac419ea5f0bb602fc5";
     EditText editText;
     TextView textView;
 
@@ -79,12 +79,11 @@ public class MainActivity extends Activity {
             */
             @Override
             public void onResponse(Call<Model> call, Response<Model> response) {
-                int tCode = response.code();
                 if(response.code() == 200) {
                     String resultText = response.body().getText().get(0);
                     textView.setText(resultText);
                 }
-                Log.e("Error", Integer.toString(tCode));
+                //Log.e("RESPONSE CODE", Integer.toString(response.code()));
             }
 
             /*
